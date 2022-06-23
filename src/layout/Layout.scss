@@ -1,0 +1,10 @@
+.l-layout {
+	min-height: 100vh;
+}
+.l-main {
+	margin-left: 280px;
+	margin-top: 82px;
+	@media screen and (max-width: 1439px) {
+		margin-left: 70px;
+	}
+}

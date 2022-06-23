@@ -1,0 +1,48 @@
+@import 'assets/bootstrap.scss';
+// 0c2738
+* {
+	font-family: 'Poppins', sans-serif;
+	text-decoration: none;
+    list-style: none;
+	&:focus,
+	&:hover,
+	&:visited,
+	&:link,
+	&:active {
+		text-decoration: none;
+	}
+}
+
+a {
+	color: #000;
+}
+
+.logo {
+	display: flex;
+	align-items: flex-end;
+	font-size: 18px;
+    z-index: 20;
+	.imgLG {
+		filter: invert(87%) sepia(40%) saturate(5044%) hue-rotate(154deg)
+			brightness(313%) contrast(83%);
+	}
+	p {
+		font-size: 25px;
+		margin-bottom: -2px;
+	}
+	b {
+		font-size: 30px;
+		margin-bottom: -5px;
+		background: -webkit-linear-gradient(
+			#eee 37%,
+			#00ffc4 82%,
+			#007358 100%
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	img {
+		width: 40px;
+		height: 40px;
+	}
+}

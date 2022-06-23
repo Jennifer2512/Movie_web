@@ -1,0 +1,58 @@
+.pre-movie {
+	text-align: center;
+	color: white;
+	background: #000;
+	height: 770px;
+	.imgHv1 {
+		.logo {
+			position: absolute;
+			top: 35px;
+			left: 70px;
+			img {
+				width: 60px;
+				height: 60px;
+			}
+			b {
+				font-size: 40px;
+			}
+			p {
+				font-size: 35px;
+			}
+		}
+		.img-hover-zoom {
+			height: 100%;
+		}
+	}
+	.imgHv2 {
+		.img-hover-zoom {
+			height: 50%;
+		}
+	}
+	.imgHv1,
+	.imgHv2 {
+		width: 50%;
+	}
+	.img-hover-zoom {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		border: 1.5px solid #000;
+		position: relative;
+		img {
+			height: 100%;
+			width: 100%;
+			transition: transform 1s ease;
+			-webkit-filter: brightness(60%);
+		}
+		&:hover img {
+			transform: scale(1.1);
+			-webkit-filter: brightness(45%);
+		}
+	}
+	.textImgCenter {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}

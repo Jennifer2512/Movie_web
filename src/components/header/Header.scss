@@ -1,0 +1,31 @@
+.header {
+	padding: 20px 70px;
+	background: #0c2738;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 18px;
+	.nav-menu {
+		width: 60%;
+		display: flex;
+		justify-content: space-between;
+		.textCl {
+			padding: 10px 18px;
+			color: #3d6888;
+			border-radius: 4px;
+			&:hover {
+				color: #00ffc4;
+				transition: 0.3s;
+			}
+		}
+		.active {
+			background: #254258;
+			color: #00ffc4;
+		}
+	}
+}
+.bgHeader {
+	transition: 1.5s;
+	background: #020405;
+}
