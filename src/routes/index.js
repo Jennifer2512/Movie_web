@@ -3,7 +3,7 @@ import AboutUs from 'pages/about-us';
 import Contact from 'pages/contact';
 import Discovery from 'pages/discovery';
 import Favorite from 'pages/favorite';
-import Home from 'pages/home';
+import Home from 'pages/home/Home';
 
 const routes = [
 	{
