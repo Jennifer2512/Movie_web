@@ -1,7 +1,12 @@
+import PreviewMovie from 'components/preview-movie/PreviewMovie';
 import React from 'react';
 
 function Discovery() {
-	return <div>Discovery</div>;
+	return (
+		<>
+			<PreviewMovie />
+		</>
+	);
 }
 
 export default Discovery;

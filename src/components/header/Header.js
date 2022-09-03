@@ -3,14 +3,11 @@ import TV from 'assets/icon/TV.svg';
 import './Header.scss';
 import { Link, useLocation } from 'react-router-dom';
 import routes from 'routes';
-import PreviewMovie from 'components/preview-movie/PreviewMovie';
 
 const Header = () => {
 	const location = useLocation();
 	const [offset, setOffset] = useState(0);
 
-
-    
 	useEffect(() => {
 		const onScroll = () => setOffset(window.pageYOffset);
 		window.removeEventListener('scroll', onScroll);
@@ -18,22 +15,30 @@ const Header = () => {
 		return () => window.removeEventListener('scroll', onScroll);
 	}, []);
 
+	useEffect(() => {
+		if (window.pageYOffset > 100) {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
+	}, [location.pathname]);
+
 	return (
 		<>
-			<PreviewMovie />
 			<div
-				className={`sticky-top header ${
-					location.pathname == '/contact' && offset > 0
-						? 'bgHeader'
-						: ''
+				// className={`sticky-top header ${
+				// 	location.pathname == '/contact' && offset > 0
+				// 		? 'bgHeader'
+				// 		: ''
+				// }`}
+				className={`${
+					window.pageYOffset > 700 ? 'header sticky-top' : 'none'
 				}`}
 			>
-				<Link className="logo text-white" to="/">
-					<img className="imgLG" src={TV} />
-					<b>&nbsp;Movie</b>
-					<p>Your</p>
+				<Link className='logo text-white' to='/'>
+					<img className='imgLG' src={TV} />
+					<b>&nbsp;Your</b>
+					<p>Movie</p>
 				</Link>
-				<div className="nav-menu">
+				<div className='nav-menu'>
 					{routes.map((val, key) => {
 						return (
 							<Link

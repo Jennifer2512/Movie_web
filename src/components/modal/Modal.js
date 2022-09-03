@@ -1,18 +1,36 @@
 import React from 'react';
 import './Modal.scss';
+import apiConfig from '../../api/apiConfig';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 export default function Modal({ movie }) {
-	return (
-		<div className="container">
-			<img
-				src={apiConfig.originalImage(movie.poster_path)}
-				alt="image movie"
-				className="image"
-			/>
-			<p>{movie.title}</p>
-			<div className="overlay">
-				<div className="text">Hello World</div>
+	const renderTooltip = (props) => (
+		<Tooltip id='button-tooltip' {...props} className='tooltipModal'>
+			<div className='tooltipModal__item'>
+				{/* <img
+					className='modalMovie__img'
+					src={apiConfig.originalImage(movie.poster_path)}
+					alt='image movie'
+				/> */}
+				<p className='modalMovie__title'>{movie.title}</p>
 			</div>
-		</div>
+		</Tooltip>
+	);
+
+	return (
+		<OverlayTrigger
+			placement='right'
+			delay={{ show: 250, hide: 100 }}
+			overlay={renderTooltip}
+		>
+			<div className='modalMovie'>
+				<img
+					className='modalMovie__img'
+					src={apiConfig.originalImage(movie.poster_path)}
+					alt='image movie'
+				/>
+			</div>
+		</OverlayTrigger>
 	);
 }

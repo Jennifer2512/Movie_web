@@ -1,0 +1,23 @@
+.carousel {
+	height: 700px;
+	background: #0c2738;
+	.carousel-inner {
+		height: 100% !important;
+	}
+	.carousel-indicators{
+        display: none;
+    }
+	.carousel-control-prev,
+	.carousel-control-next {
+		z-index: 5;
+	}
+    .carousel-control-prev,
+	.carousel-control-next {
+        opacity: 0;
+        background: rgba(67, 67, 67, 0.3);
+        width: 4%;
+        &:hover{
+            opacity: 1;
+        }
+    }
+}

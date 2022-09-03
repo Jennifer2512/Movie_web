@@ -1,11 +1,12 @@
 .header {
 	padding: 20px 70px;
-	background: #0c2738;
+	background: #0c2738e4;
 	color: #fff;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	font-size: 18px;
+	transition: 1s;
 	.nav-menu {
 		width: 60%;
 		display: flex;
@@ -25,7 +26,6 @@
 		}
 	}
 }
-.bgHeader {
-	transition: 1.5s;
-	background: #020405;
+.none {
+	height: 0;
 }

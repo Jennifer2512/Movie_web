@@ -2,6 +2,7 @@ import React from 'react';
 import bgFooter from 'assets/images/footer.jpg';
 import './Footer.scss';
 import { Link, useLocation } from 'react-router-dom';
+import BackToTop from 'components/back-to-top/BackToTop';
 
 function Footer() {
 	const location = useLocation();
@@ -12,6 +13,7 @@ function Footer() {
 				location.pathname == '/contact' ? 'd-none' : 'd-block'
 			}`}
 		>
+			<BackToTop />
 			<div className="wrap-footer">
 				<div className="top-footer d-flex">
 					<div>
