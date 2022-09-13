@@ -2,7 +2,7 @@
 	position: relative;
 	background: #0c2738;
 	color: #fff;
-	height: 600px;
+	height: 400px;
 	.BG {
 		width: 100%;
 		height: 100%;
@@ -21,14 +21,11 @@
 		justify-content: space-between;
 		.top-footer {
 			align-items: center;
-			justify-content: space-between;
+			justify-content: space-evenly;
 			padding: 30px;
-			height: 700px;
-			width: 700px;
+			height: 300px;
+			width: 70%;
 			margin: 0 auto;
-			h4 {
-				margin-bottom: 40px;
-			}
 			.section-footer {
 				font-weight: 300;
 				display: flex;

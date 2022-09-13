@@ -9,10 +9,9 @@ function ControlledCarousel() {
 	const location = useLocation();
 
 	return (
-		<div>
 			<div
 				className={`carousel myCrs ${
-					location.pathname == '/' ? 'd-block' : 'd-none'
+					location.pathname === '/' ? 'd-block' : 'd-none'
 				}`}
 			>
 				<Carousel>
@@ -32,7 +31,6 @@ function ControlledCarousel() {
 					))}
 				</Carousel>
 			</div>
-		</div>
 	);
 }
 

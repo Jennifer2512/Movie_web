@@ -6,6 +6,7 @@ import ControlledCarousel from 'components/carousel/Carousel';
 
 function Home() {
 	const [movieItems, setMovieItems] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const getMovies = async () => {
@@ -16,6 +17,7 @@ function Home() {
 					{ params }
 				);
 				setMovieItems(response.results);
+				setLoading(false);
 			} catch {
 				console.log('error');
 			}
@@ -26,11 +28,15 @@ function Home() {
 	return (
 		<>
 			<ControlledCarousel />
-			<div className='home'>
-				{movieItems.map((movie, key) => (
-					<Modal key={key} movie={movie} />
-				))}
-			</div>
+			{loading ? (
+				<div className='bars-7'></div>
+			) : (
+				<div className='home'>
+					{movieItems.map((movie, key) => (
+						<Modal key={key} movie={movie} />
+					))}
+				</div>
+			)}
 		</>
 	);
 }

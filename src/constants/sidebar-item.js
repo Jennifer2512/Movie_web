@@ -17,11 +17,5 @@ export const SideBarData = [
 		path: '/television',
 		key: 'tv',
 		icon: 'fa-television'
-	},
-	{
-		title: 'Favorite',
-		path: '/favorite',
-		key: 'favorite',
-		icon: 'fa-star-o'
 	}
 ];

@@ -1,0 +1,86 @@
+.card {
+	width: 100%;
+	height: 100%;
+	background: none;
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+		rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+	&__img {
+		height: 200px;
+		width: 100%;
+		object-fit: cover;
+		border: none;
+		border-radius: 3px;
+	}
+	&__detail {
+		opacity: 0;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba(54, 54, 54, 0.838);
+		overflow: hidden;
+		width: 100%;
+		height: 0;
+		transition: 0.5s ease;
+		padding: 10px 10px;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+		&-ttl {
+			padding-top: 30px;
+			color: #e7e247;
+            font-size: 14px;
+		}
+        &-decs{
+            font-size: 12px;
+        }
+		&-vote {
+			color: #e7e247;
+			position: absolute;
+			top: 10px;
+			left: 0;
+			background: #000;
+			border-bottom-right-radius: 5px;
+			border-top-right-radius: 5px;
+			padding: 1px 7px;
+			font-size: 12px;
+		}
+		&-btn {
+			align-items: center;
+			background-color: #fff;
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			border-radius: 0.25rem;
+			box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+			box-sizing: border-box;
+			color: #000;
+			transition: all 250ms;
+			width: 100%;
+			cursor: pointer;
+			height: 40px;
+			&:hover {
+				transform: translateY(-3px);
+			}
+			&:hover,
+			&:focus {
+				border-color: rgba(0, 0, 0, 0.15);
+				box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+				color: #000;
+				font-weight: 600;
+			}
+			&:active {
+				background-color: #f0f0f1;
+				border-color: rgba(0, 0, 0, 0.15);
+				box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+				color: rgba(0, 0, 0, 0.65);
+				transform: translateY(0);
+			}
+		}
+	}
+	&:hover {
+		.card__detail {
+			height: 100%;
+			opacity: 1;
+		}
+	}
+}

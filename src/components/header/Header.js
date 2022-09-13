@@ -24,13 +24,12 @@ const Header = () => {
 	return (
 		<>
 			<div
-				// className={`sticky-top header ${
-				// 	location.pathname == '/contact' && offset > 0
-				// 		? 'bgHeader'
-				// 		: ''
-				// }`}
 				className={`${
-					window.pageYOffset > 700 ? 'header sticky-top' : 'none'
+					offset > 700 ||
+					location.pathname == '/discovery' ||
+					location.pathname == '/contact'
+						? 'header sticky-top'
+						: 'none'
 				}`}
 			>
 				<Link className='logo text-white' to='/'>

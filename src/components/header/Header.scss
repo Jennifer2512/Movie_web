@@ -6,9 +6,9 @@
 	justify-content: space-between;
 	align-items: center;
 	font-size: 18px;
-	transition: 1s;
+	transition: 0.5s;
 	.nav-menu {
-		width: 60%;
+		width: 40%;
 		display: flex;
 		justify-content: space-between;
 		.textCl {
@@ -28,4 +28,5 @@
 }
 .none {
 	height: 0;
+	opacity: 0;
 }

@@ -1,0 +1,104 @@
+.discovery {
+	color: #fff;
+	&__landing {
+		margin: -10px 0 50px 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		img {
+			width: 40%;
+			height: 40%;
+			object-fit: cover;
+		}
+		&-content {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			justify-content: space-evenly;
+			margin-top: 70px;
+			button {
+				color: #00ffc4;
+				background: none;
+				border: none;
+				display: flex;
+				margin-top: 240px;
+				opacity: 0.5;
+                transition: 0.5s;
+				img {
+					padding-top: 6px;
+					width: 40px;
+					height: 40px;
+				}
+				&:hover {
+					opacity: 1;
+				}
+			}
+			.wavy {
+				position: relative;
+				-webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+				font-size: 45px;
+				top: 100px;
+			}
+			.wavy span {
+				font-family: 'Alfa Slab One', cursive;
+				position: relative;
+				display: inline-block;
+				color: #fff;
+				text-transform: uppercase;
+				animation: wavy 1s infinite;
+				animation-delay: calc(0.1s * var(--i));
+			}
+			@keyframes wavy {
+				0%,
+				40%,
+				100% {
+					transform: translateY(0);
+				}
+				20% {
+					transform: translateY(-20px);
+				}
+			}
+		}
+	}
+	&__item {
+		margin-bottom: 140px;
+	}
+	&__ttl {
+		color: #00ffc4;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
+		img {
+			width: 40px;
+			height: 40px;
+		}
+		hr {
+			width: 70%;
+			height: 2px;
+			background: #00ffc4;
+			opacity: 1;
+		}
+	}
+	li {
+		width: 230px !important;
+	}
+	.react-multiple-carousel__arrow {
+		border-radius: 0;
+		height: 100%;
+		width: 5%;
+		opacity: 0;
+		box-shadow: #000000c4 0px 10px 10px 21px;
+		background: #000000c4;
+		&:hover {
+			opacity: 1;
+			background: #000000c4;
+		}
+	}
+	.react-multiple-carousel__arrow--left {
+		left: 0;
+	}
+	.react-multiple-carousel__arrow--right {
+		right: 0;
+	}
+}

@@ -1,9 +1,13 @@
-@import 'assets/bootstrap.scss';
+@import '~bootstrap/scss/bootstrap';
 // 0c2738
+// 00ffc4
+.app {
+	background-color: #0c2738;
+}
 * {
 	font-family: 'Poppins', sans-serif;
 	text-decoration: none;
-    list-style: none;
+	list-style: none;
 	&:focus,
 	&:hover,
 	&:visited,
@@ -21,7 +25,7 @@ a {
 	display: flex;
 	align-items: flex-end;
 	font-size: 18px;
-    z-index: 20;
+	z-index: 20;
 	.imgLG {
 		filter: invert(87%) sepia(40%) saturate(5044%) hue-rotate(154deg)
 			brightness(313%) contrast(83%);
@@ -45,4 +49,40 @@ a {
 		width: 40px;
 		height: 40px;
 	}
+}
+
+.bars-7 {
+	margin: 0 auto;
+	width: 45px;
+	aspect-ratio: 0.75;
+	--c: no-repeat linear-gradient(#00ffc4 0 0);
+	background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
+	animation: b7 1s infinite linear alternate;
+}
+@keyframes b7 {
+	0% {
+		background-size: 20% 50%, 20% 50%, 20% 50%;
+	}
+	20% {
+		background-size: 20% 20%, 20% 50%, 20% 50%;
+	}
+	40% {
+		background-size: 20% 100%, 20% 20%, 20% 50%;
+	}
+	60% {
+		background-size: 20% 50%, 20% 100%, 20% 20%;
+	}
+	80% {
+		background-size: 20% 50%, 20% 50%, 20% 100%;
+	}
+	100% {
+		background-size: 20% 50%, 20% 50%, 20% 50%;
+	}
+}
+
+.line-clamp {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
 }

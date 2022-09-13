@@ -1,8 +1,5 @@
-// import Layout from 'components/layout/Layout';
-import AboutUs from 'pages/about-us';
 import Contact from 'pages/contact';
 import Discovery from 'pages/discovery';
-import Favorite from 'pages/favorite';
 import Home from 'pages/home/Home';
 
 const routes = [
@@ -15,16 +12,6 @@ const routes = [
         title: 'Discovery',
 		path: '/discovery',
 		component: <Discovery />
-	},
-	{
-        title: 'Favorite',
-		path: '/favorite',
-		component: <Favorite />
-	},
-	{
-        title: 'About Us',
-		path: '/about-us',
-		component: <AboutUs />
 	},
 	{
         title: 'Contact',

@@ -21,7 +21,7 @@ function App() {
 	};
 
 	return (
-		<>
+		<div className='app'>
 			<Header />
 			<Routes>
 				{routes.map((route, index) =>
@@ -29,7 +29,7 @@ function App() {
 				)}
 			</Routes>
 			<Footer />
-		</>
+		</div>
 	);
 }
 
