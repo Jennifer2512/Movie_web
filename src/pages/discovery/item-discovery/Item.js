@@ -7,44 +7,58 @@ import 'react-multi-carousel/lib/styles.css';
 import tmdbApi, { movieType, tvType } from 'api/tmdbApi';
 
 function Item() {
-	const [movieList, setMovieList] = useState([]);
-	const [tvList, setTvList] = useState([]);
+	const [upcoming, setUpcoming] = useState([]);
+	const [popular, setPopular] = useState([]);
+	const [topRated, setTopRated] = useState([]);
+	const [tvPopular, setTvPopular] = useState([]);
+	const [tvTopRated, setTvTopRated] = useState([]);
+	const [tvOnAir, setTvOnAir] = useState([]);
 	const [loading, setLoading] = useState(true);
 
-	const getMovies = async () => {
-		const params = { page: 1 };
+	const getList = async () => {
+		const params = { page: Math.floor(Math.random() * 4) + 1 };
 		try {
-			const response = await tmdbApi.getMoviesList(movieType.top_rated, {
+			//MOVIE
+			const resUp = await tmdbApi.getMoviesList(movieType.upcoming, {
 				params
 			});
-			setMovieList(response.results);
+			const resPopular = await tmdbApi.getMoviesList(movieType.popular, {
+				params
+			});
+			const resTop = await tmdbApi.getMoviesList(movieType.top_rated, {
+				params
+			});
+			setUpcoming(resUp.results);
+			setPopular(resPopular.results);
+			setTopRated(resTop.results);
+			//TV
+			const resTvPopular = await tmdbApi.getTvList(tvType.popular, {
+				params
+			});
+			const resTvTop = await tmdbApi.getTvList(tvType.top_rated, {
+				params
+			});
+			const resTvOn = await tmdbApi.getTvList(tvType.on_the_air, {
+				params
+			});
+			setTvPopular(resTvPopular.results);
+			setTvTopRated(resTvTop.results);
+			setTvOnAir(resTvOn.results);
+			//LOADING
 			setLoading(false);
 		} catch {
 			console.log('error');
 		}
 	};
-	const getTvList = async () => {
-		const params = { page: 1 };
-		try {
-			const response = await tmdbApi.getTvList(tvType.popular, {
-				params
-			});
-			setTvList(response.results);
-			setLoading(false);
-		} catch {
-			console.log('error');
-		}
-	};
-
+	console.log(tvOnAir);
 	useEffect(() => {
-		getMovies();
-		getTvList();
+		getList();
 	}, []);
 
 	const responsive = {
 		desktop: {
 			breakpoint: { max: 3000, min: 1024 },
-			items: 4
+			items: 5
 		},
 		tablet: {
 			breakpoint: { max: 1024, min: 464 },
@@ -63,34 +77,98 @@ function Item() {
 			) : (
 				<>
 					<div className='discovery__item'>
-						<h2 className='discovery__ttl'>
+						<h3 className='discovery__ttl'>
 							<img src={MV} />
-							Top Movies
+							Upcoming Movie
 							<hr />
-						</h2>
+						</h3>
 						<Carousel
 							itemClass='image-item'
 							responsive={responsive}
 							infinite
 						>
-							{movieList.map((movie, key) => (
+							{upcoming.map((movie, key) => (
+								<Card key={key} movie={movie} />
+							))}
+						</Carousel>
+					</div>
+					<div className='discovery__item'>
+						<h3 className='discovery__ttl'>
+							<img src={MV} />
+							Top Popular Movie
+							<hr />
+						</h3>
+						<Carousel
+							itemClass='image-item'
+							responsive={responsive}
+							infinite
+						>
+							{popular.map((movie, key) => (
+								<Card key={key} movie={movie} />
+							))}
+						</Carousel>
+					</div>
+					<div className='discovery__item'>
+						<h3 className='discovery__ttl'>
+							<img src={MV} />
+							Top Rated Movie
+							<hr />
+						</h3>
+						<Carousel
+							itemClass='image-item'
+							responsive={responsive}
+							infinite
+						>
+							{topRated.map((movie, key) => (
 								<Card key={key} movie={movie} />
 							))}
 						</Carousel>
 					</div>
 
 					<div className='discovery__item'>
-						<h2 className='discovery__ttl'>
+						<h3 className='discovery__ttl'>
 							<img src={TV} />
-							Top TV Popular
+							Top Popular TV
 							<hr />
-						</h2>
+						</h3>
 						<Carousel
 							itemClass='image-item'
 							responsive={responsive}
 							infinite
 						>
-							{tvList.map((tv, key) => (
+							{tvPopular.map((tv, key) => (
+								<Card key={key} movie={tv} />
+							))}
+						</Carousel>
+					</div>
+					<div className='discovery__item'>
+						<h3 className='discovery__ttl'>
+							<img src={TV} />
+							Top Rated TV
+							<hr />
+						</h3>
+						<Carousel
+							itemClass='image-item'
+							responsive={responsive}
+							infinite
+						>
+							{tvTopRated.map((tv, key) => (
+								<Card key={key} movie={tv} />
+							))}
+						</Carousel>
+					</div>
+					<div className='discovery__item'>
+						<h3 className='discovery__ttl'>
+							<img src={TV} />
+							On The Air TV
+							<hr />
+						</h3>
+						<Carousel
+							itemClass='image-item'
+							responsive={responsive}
+							infinite
+						>
+							{tvOnAir.map((tv, key) => (
 								<Card key={key} movie={tv} />
 							))}
 						</Carousel>

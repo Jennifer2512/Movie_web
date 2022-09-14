@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import './discovery.scss';
 import Item from './item-discovery/Item';
-import landing from 'assets/icon/discovery.svg';
+import landing from 'assets/images/discovery.svg';
+import background from 'assets/images/bg-discovery.svg';
 import arr from 'assets/icon/downward-arrow.png';
 function Discovery() {
 	const ref = useRef(null);
@@ -12,7 +13,13 @@ function Discovery() {
 	return (
 		<div className='discovery container'>
 			<div className='discovery__landing'>
-				<img src={landing} />
+				<div className='discovery__landing-imgwrap'>
+					<img className='discovery__landing-img' src={landing} />
+					<img
+						className='discovery__landing-imgBG'
+						src={background}
+					/>
+				</div>
 				<div className='discovery__landing-content'>
 					<div className='wavy'>
 						<span style={{ '--i': 1 }}>L</span>

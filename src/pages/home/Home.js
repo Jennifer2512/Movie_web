@@ -10,7 +10,7 @@ function Home() {
 
 	useEffect(() => {
 		const getMovies = async () => {
-			const params = { page: 1 };
+			const params = { page: Math.floor(Math.random() * 100) + 1 };
 			try {
 				const response = await tmdbApi.getMoviesList(
 					movieType.popular,

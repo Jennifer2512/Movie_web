@@ -1,14 +1,41 @@
 .discovery {
 	color: #fff;
 	&__landing {
-		margin: -10px 0 50px 0;
+		margin: -10px 0 100px 0;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		img {
-			width: 40%;
-			height: 40%;
+		&-imgwrap {
+			position: relative;
+		}
+		&-img {
+			position: relative;
+			width: 100%;
+			height: 100%;
 			object-fit: cover;
+			padding-left: 80px;
+			z-index: 20;
+		}
+		&-imgBG {
+			z-index: 10;
+			position: absolute;
+			top: -50px;
+			left: 26px;
+			width: 400px;
+			height: 400px;
+			transform: translatey(0px);
+			animation: float 4s ease-in-out infinite;
+			@keyframes float {
+				0% {
+					transform: translatey(0px);
+				}
+				50% {
+					transform: translatey(-10px);
+				}
+				100% {
+					transform: translatey(0px);
+				}
+			}
 		}
 		&-content {
 			display: flex;
@@ -23,7 +50,7 @@
 				display: flex;
 				margin-top: 240px;
 				opacity: 0.5;
-                transition: 0.5s;
+				transition: 0.5s;
 				img {
 					padding-top: 6px;
 					width: 40px;
@@ -61,7 +88,7 @@
 		}
 	}
 	&__item {
-		margin-bottom: 140px;
+		margin-bottom: 90px;
 	}
 	&__ttl {
 		color: #00ffc4;
@@ -70,14 +97,13 @@
 		align-items: center;
 		margin-bottom: 20px;
 		img {
-			width: 40px;
-			height: 40px;
+			width: 35px;
+			height: 35px;
 		}
 		hr {
 			width: 70%;
-			height: 2px;
-			background: #00ffc4;
 			opacity: 1;
+			border-top: 1.5px dashed #00ffc4;
 		}
 	}
 	li {
@@ -90,6 +116,7 @@
 		opacity: 0;
 		box-shadow: #000000c4 0px 10px 10px 21px;
 		background: #000000c4;
+		z-index: 20;
 		&:hover {
 			opacity: 1;
 			background: #000000c4;
