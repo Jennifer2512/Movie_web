@@ -5,7 +5,7 @@ import errorImg from 'assets/icon/error.png';
 import { Link } from 'react-router-dom';
 
 export default function Modal({ movie, category }) {
-	const link = '/' + category + '/' + movie.id + 'detail';
+	const link = '/' + category + '/' + movie.id + '/' + 'detail';
 	return (
 		<div className='modalMovie'>
 			<img
