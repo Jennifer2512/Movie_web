@@ -8,7 +8,10 @@ function Card({ movie }) {
 		<div className='card' id='card'>
 			<img
 				className='card__img'
-				src={apiConfig.originalImage(movie.poster_path) || errorImg}
+				src={apiConfig.originalImage(movie.poster_path)}
+				onError={(e) => (
+					(e.target.onerror = null), (e.target.src = errorImg)
+				)}
 			/>
 			<div className='card__detail'>
 				<span className='card__detail-vote'>

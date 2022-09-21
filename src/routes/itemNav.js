@@ -1,5 +1,5 @@
-import Contact from 'pages/contact';
-import Discovery from 'pages/discovery';
+import Contact from 'pages/contact/Contact';
+import Discovery from 'pages/discovery/Discovery';
 import Home from 'pages/home/Home';
 import earth from 'assets/icon/earth.png';
 import mail from 'assets/icon/mail.png';

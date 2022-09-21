@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { useLocation } from 'react-router-dom';
 import Item from './item-carousel/Item';
 import apiConfig from 'api/apiConfig';
-import data from './data';
+import data from './item-carousel/data';
 
 function ControlledCarousel() {
 	const location = useLocation();
