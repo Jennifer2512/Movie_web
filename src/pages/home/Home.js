@@ -3,42 +3,132 @@ import './home.scss';
 import tmdbApi, { movieType } from 'api/tmdbApi';
 import Modal from 'components/modal/Modal';
 import ControlledCarousel from 'components/carousel/Carousel';
+import NotFound from 'components/404/NotFound';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-function Home() {
-	const [movieItems, setMovieItems] = useState([]);
+const Home = () => {
+	const [keyword, setKeyword] = useState('');
 	const [loading, setLoading] = useState(true);
+	const [items, setItems] = useState([]);
+	const [page, setPage] = useState(1);
+	const [totalPage, setTotalPage] = useState(0);
+	let response = null;
+	const location = useLocation();
+
+	const goToSearch = async () => {
+		const params = {
+			query: keyword
+		};
+		response = await tmdbApi.search('movie', { params });
+		setItems(response.results);
+		setTotalPage(response.total_pages);
+		window.history.pushState(
+			(location.pathname = `/search/${keyword}`),
+			'',
+			`/search/${keyword}`
+		);
+	};
+
+	const getList = async () => {
+		const params = {};
+		response = await tmdbApi.getMoviesList(movieType.upcoming, {
+			params
+		});
+		setKeyword('');
+		setItems(response.results);
+		setTotalPage(response.total_pages);
+		setLoading(false);
+	};
+	useEffect(() => {
+		if (location.pathname == '/') {
+			getList();
+		}
+	}, [location.pathname]);
+
+	const loadMore = async () => {
+		let response = null;
+		if (keyword === '') {
+			const params = {
+				page: page + 1
+			};
+			response = await tmdbApi.getMoviesList(movieType.upcoming, {
+				params
+			});
+		} else {
+			const params = {
+				page: page + 1,
+				query: keyword
+			};
+			response = await tmdbApi.search('movie', { params });
+		}
+		setItems([...items, ...response.results]);
+		setPage(page + 1);
+		setLoading(false);
+	};
 
 	useEffect(() => {
-		const getMovies = async () => {
-			const params = { page: Math.floor(Math.random() * 100) + 1 };
-			try {
-				const response = await tmdbApi.getMoviesList(
-					movieType.popular,
-					{ params }
-				);
-				setMovieItems(response.results);
-				setLoading(false);
-			} catch {
-				console.log('error');
+		const enterEvent = (e) => {
+			e.preventDefault();
+			if (e.keyCode === 13) {
+				goToSearch();
 			}
 		};
-		getMovies();
-	}, []);
+		document.addEventListener('keyup', enterEvent);
+		return () => {
+			document.removeEventListener('keyup', enterEvent);
+		};
+	}, [goToSearch]);
 
 	return (
 		<>
 			<ControlledCarousel />
-			{loading ? (
-				<div className='bars-7'></div>
-			) : (
-				<div className='home'>
-					{movieItems.map((movie, key) => (
-						<Modal key={key} movie={movie} />
-					))}
+			<div className='home'>
+				<div className='home-search'>
+					<input
+						type='text'
+						placeholder='Search...'
+						value={keyword}
+						onChange={(e) => setKeyword(e.target.value)}
+					/>
+					<button
+						className='home-search__btn'
+						onClick={goToSearch}
+					></button>
 				</div>
-			)}
+				{/* {items.length > 0 ? (
+					<> */}
+				{loading ? (
+					<div className='bars-7'></div>
+				) : (
+					<>
+						{items.length > 0 ? (
+							<>
+								<div className='home-content'>
+									{items.map((item, i) => (
+										<Modal movie={item} key={i} />
+									))}
+								</div>
+								{page < totalPage ? (
+									<div className='home-loadmore'>
+										<button onClick={loadMore}>
+											Load more
+										</button>
+									</div>
+								) : null}
+							</>
+						) : (
+							<NotFound />
+						)}
+					</>
+				)}
+
+				{/* </>
+				) : (
+					<NotFound />
+				)} */}
+			</div>
 		</>
 	);
-}
+};
 
 export default Home;

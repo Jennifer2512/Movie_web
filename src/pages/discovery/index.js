@@ -42,6 +42,9 @@ function Discovery() {
 						<span style={{ '--i': 16 }}>H</span>
 						<span style={{ '--i': 17 }}>E</span>
 						<span style={{ '--i': 18 }}>R</span>
+						<span style={{ '--i': 19 }}>!</span>
+						<span style={{ '--i': 20 }}>!</span>
+						<span style={{ '--i': 21 }}>!</span>
 					</div>
 
 					<button onClick={scrollContent} ref={ref}>

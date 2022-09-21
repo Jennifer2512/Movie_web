@@ -10,7 +10,7 @@ function ControlledCarousel() {
 
 	return (
 			<div
-				className={`carousel myCrs ${
+				className={`carousel myCrs container${
 					location.pathname === '/' ? 'd-block' : 'd-none'
 				}`}
 			>

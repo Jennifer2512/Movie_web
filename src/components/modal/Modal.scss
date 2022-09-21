@@ -6,6 +6,23 @@
 	border-radius: 5px;
 	z-index: 10;
 	cursor: pointer;
+	@media (max-width: 990px) {
+		width: 200px;
+		height: 290px;
+	}
+	@media (max-width: 600px) {
+		width: 180px;
+		height: 260px;
+	}
+	@media (max-width: 564px) {
+		width: 170px;
+		height: 230px;
+	}
+	@media (max-width: 425px) {
+        margin: 20px auto;
+		width: 70%;
+        height: 270px;
+	}
 	&__detail {
 		display: none;
 		color: rgb(255, 255, 255);
@@ -28,9 +45,15 @@
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			@media (max-width: 990px) {
+				font-size: 18px;
+			}
 		}
 		&-decs {
 			font-size: 12px;
+			@media (max-width: 990px) {
+				font-size: 10px;
+			}
 		}
 		&-btn {
 			align-items: center;
@@ -44,6 +67,12 @@
 			width: 100%;
 			cursor: pointer;
 			height: 40px;
+			@media (max-width: 990px) {
+				height: 30px;
+			}
+			@media (max-width: 600px) {
+				height: 27px;
+			}
 			&:hover {
 				transform: translateY(-3px);
 			}
@@ -85,5 +114,3 @@
 		height: 100%;
 	}
 }
-
-

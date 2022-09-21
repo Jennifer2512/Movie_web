@@ -3,10 +3,9 @@ import bgFooter from 'assets/images/footer.jpg';
 import './Footer.scss';
 import { Link, useLocation } from 'react-router-dom';
 import BackToTop from 'components/back-to-top/BackToTop';
+import routes from 'routes/itemNav';
 
 function Footer() {
-	const location = useLocation();
-
 	return (
 		<div className='footer'>
 			<BackToTop />
@@ -14,9 +13,15 @@ function Footer() {
 				<div className='top-footer d-flex'>
 					<div>
 						<div className='section-footer'>
-							<Link to='/'>Home</Link>
-							<Link to='/discovery'>Discovery</Link>
-							<Link to='/contact'>Contact us</Link>
+							{routes.map((val, key) => {
+								return (
+									<Link key={key} to={val.path}>
+										<img src={val.icon} />
+										&emsp;
+										{val.title}
+									</Link>
+								);
+							})}
 						</div>
 					</div>
 					<div>
@@ -36,19 +41,11 @@ function Footer() {
 								&emsp;Github
 							</a>
 							<a href='#'>
-								<i
-									className='fa fa-envelope-o'
-									aria-hidden='true'
-								></i>
+								<i className='fa fa-at' aria-hidden='true'></i>
 								&emsp;nvy0128@gmail.com
 							</a>
 						</div>
 					</div>
-				</div>
-				<div className='botom-footer'>
-					Copyright © Movie ReviewsTemplate design by{' '}
-					<a href='#'>Studio Corvus</a> - Powerd by{' '}
-					<a href='#'>Webflow</a> <a href='#'>Image Licensing Info</a>
 				</div>
 			</div>
 			<img className='BG' src={bgFooter} />

@@ -1,0 +1,44 @@
+.not-found {
+	position: relative;
+	margin: 0 auto;
+	width: 400px;
+	height: 450px;
+}
+.ass1,
+.ass2 {
+	position: absolute;
+}
+.ass2 {
+	top: 70px;
+	left: 30px;
+	transform: translateX(0px);
+	animation: fl 4s ease infinite;
+	@keyframes fl {
+		0% {
+			transform: translateX(0px);
+		}
+		50% {
+			transform: translateX(9px);
+		}
+		100% {
+			transform: translateX(0px);
+		}
+	}
+}
+.ass1 {
+	right: 60px;
+	bottom: 30px;
+	transform: translateY(0px);
+	animation: float 4s ease-in-out infinite;
+	@keyframes float {
+		0% {
+			transform: translateY(0px);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+		100% {
+			transform: translateY(0px);
+		}
+	}
+}

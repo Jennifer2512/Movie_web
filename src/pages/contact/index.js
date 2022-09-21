@@ -1,93 +1,87 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './contact.scss';
 import bgContact from 'assets/images/bgContact.jpg';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
+	const form = useRef();
+
+	const sendEmail = (e) => {
+		e.preventDefault();
+		emailjs
+			.sendForm(
+				'service_a9ml277',
+				'template_vof1qar',
+				form.current,
+				'oJXXqtiYbmmsgYEu2'
+			)
+			.then(
+				(result) => {
+					console.log(result.text);
+				},
+				(error) => {
+					console.log(error.text);
+				}
+			);
+	};
+
 	return (
-		<div className="contact">
-			<div className="wrap-contact">
+		<div className='contact'>
+			<div className='wrap-contact container'>
 				<p>just say hey!</p>
 				<h5>
 					Send us
 					<br />
 					an Email.
 				</h5>
-				<div className="form-contact">
-					<div className="d-flex">
-						<div className="form__group field">
+				<form className='form-contact' ref={form} onSubmit={sendEmail}>
+					<div className='d-flex'>
+						<div className='form__group field'>
 							<input
-								type="input"
-								className="form__field"
-								placeholder="First Name"
-								name="first-name"
-								id="first-name"
+								type='input'
+								className='form__field'
+								placeholder='Your Name'
+								name='name'
+								id='name'
 								required
 							/>
-							<label for="first-name" className="form__label">
-								Your first name
+							<label htmlFor='name' className='form__label'>
+								Your name
 							</label>
 						</div>
-						<div className="form__group field">
+						<div className='form__group field'>
 							<input
-								type="input"
-								className="form__field"
-								placeholder="Last Name"
-								name="last-name"
-								id="last-name"
+								type='input'
+								className='form__field'
+								placeholder='Your Email'
+								name='email'
+								id='email'
 								required
 							/>
-							<label for="last-name" className="form__label">
-								Your last name
-							</label>
-						</div>
-					</div>
-					<div className="d-flex">
-						<div className="form__group field">
-							<input
-								type="input"
-								className="form__field"
-								placeholder="Phone Number"
-								name="phone-number"
-								id="phone-number"
-								required
-							/>
-							<label for="phone-number" className="form__label">
-								Enter phone number
-							</label>
-						</div>
-						<div className="form__group field">
-							<input
-								type="input"
-								className="form__field"
-								placeholder="Your Email"
-								name="your-email"
-								id="your-email"
-								required
-							/>
-							<label for="your-email" className="form__label">
-								Enter your email
+							<label htmlFor='email' className='form__label'>
+								Your email
 							</label>
 						</div>
 					</div>
 					<div>
-						<div className="form__group field">
+						<div className='form__group field'>
 							<textarea
-								type="input"
-								className="form__field"
-								placeholder="Your Message"
-								name="your-message"
-								id="your-message"
+								type='input'
+								className='form__field'
+								placeholder='Your Message'
+								name='message'
+								id='message'
 								required
 							/>
-							<label for="your-message" className="form__label">
+							<label htmlFor='message' className='form__label'>
 								Enter your message...
 							</label>
 						</div>
 					</div>
-					<button>SEND EMAIL</button>
-				</div>
+					<button type='submit'>SEND EMAIL</button>
+				</form>
 			</div>
-			<img className="BG" src={bgContact} />
+			<img className='BG' src={bgContact} />
 		</div>
 	);
 }

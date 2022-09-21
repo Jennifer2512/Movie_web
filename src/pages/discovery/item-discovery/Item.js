@@ -16,7 +16,7 @@ function Item() {
 	const [loading, setLoading] = useState(true);
 
 	const getList = async () => {
-		const params = { page: Math.floor(Math.random() * 4) + 1 };
+		const params = { page: 1 };
 		try {
 			//MOVIE
 			const resUp = await tmdbApi.getMoviesList(movieType.upcoming, {
@@ -50,8 +50,8 @@ function Item() {
 			console.log('error');
 		}
 	};
-	console.log(tvOnAir);
-	useEffect(() => {
+
+    useEffect(() => {
 		getList();
 	}, []);
 
@@ -76,17 +76,14 @@ function Item() {
 				<div className='bars-7'></div>
 			) : (
 				<>
+                {/* MOVIE */}
 					<div className='discovery__item'>
 						<h3 className='discovery__ttl'>
 							<img src={MV} />
 							Upcoming Movie
 							<hr />
 						</h3>
-						<Carousel
-							itemClass='image-item'
-							responsive={responsive}
-							infinite
-						>
+						<Carousel responsive={responsive} infinite>
 							{upcoming.map((movie, key) => (
 								<Card key={key} movie={movie} />
 							))}
@@ -98,11 +95,7 @@ function Item() {
 							Top Popular Movie
 							<hr />
 						</h3>
-						<Carousel
-							itemClass='image-item'
-							responsive={responsive}
-							infinite
-						>
+						<Carousel responsive={responsive} infinite>
 							{popular.map((movie, key) => (
 								<Card key={key} movie={movie} />
 							))}
@@ -114,28 +107,21 @@ function Item() {
 							Top Rated Movie
 							<hr />
 						</h3>
-						<Carousel
-							itemClass='image-item'
-							responsive={responsive}
-							infinite
-						>
+						<Carousel responsive={responsive} infinite>
 							{topRated.map((movie, key) => (
 								<Card key={key} movie={movie} />
 							))}
 						</Carousel>
 					</div>
 
+					{/* TV */}
 					<div className='discovery__item'>
 						<h3 className='discovery__ttl'>
 							<img src={TV} />
 							Top Popular TV
 							<hr />
 						</h3>
-						<Carousel
-							itemClass='image-item'
-							responsive={responsive}
-							infinite
-						>
+						<Carousel responsive={responsive} infinite>
 							{tvPopular.map((tv, key) => (
 								<Card key={key} movie={tv} />
 							))}
@@ -147,11 +133,7 @@ function Item() {
 							Top Rated TV
 							<hr />
 						</h3>
-						<Carousel
-							itemClass='image-item'
-							responsive={responsive}
-							infinite
-						>
+						<Carousel responsive={responsive} infinite>
 							{tvTopRated.map((tv, key) => (
 								<Card key={key} movie={tv} />
 							))}
@@ -163,11 +145,7 @@ function Item() {
 							On The Air TV
 							<hr />
 						</h3>
-						<Carousel
-							itemClass='image-item'
-							responsive={responsive}
-							infinite
-						>
+						<Carousel responsive={responsive} infinite>
 							{tvOnAir.map((tv, key) => (
 								<Card key={key} movie={tv} />
 							))}

@@ -1,15 +1,14 @@
 import apiConfig from 'api/apiConfig';
 import React, { useState } from 'react';
 import './Card.scss';
-import error from 'assets/icon/error.png';
+import errorImg from 'assets/icon/error.png';
 
 function Card({ movie }) {
 	return (
 		<div className='card' id='card'>
 			<img
 				className='card__img'
-				src={apiConfig.originalImage(movie.poster_path) || error}
-				alt='error img'
+				src={apiConfig.originalImage(movie.poster_path) || errorImg}
 			/>
 			<div className='card__detail'>
 				<span className='card__detail-vote'>
