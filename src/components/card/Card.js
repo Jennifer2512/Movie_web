@@ -5,7 +5,7 @@ import errorImg from 'assets/icon/error.png';
 import { Link } from 'react-router-dom';
 
 function Card({ movie, category }) {
-	const link = 'detail' + '/' + category + '/' + movie.id;
+	const link = '/' + 'detail' + '/' + category + '/' + movie.id;
 	return (
 		<div className='card' id='card'>
 			<img

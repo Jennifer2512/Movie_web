@@ -96,17 +96,18 @@
 		}
 
 		.genres {
-			& > * ~ * {
-				margin-left: 0.5rem;
-			}
-
+			display: flex;
+			flex-wrap: wrap;
+			justify-self: flex-start;
 			&__item {
+				margin-bottom: 10px;
 				padding: 0.5rem 1.5rem;
 				border: 2px solid $white;
 				border-radius: $border-radius;
 				font-size: 0.8rem;
 				font-weight: 600;
 				background-color: $body-bg;
+				margin-left: 10px;
 			}
 		}
 	}
