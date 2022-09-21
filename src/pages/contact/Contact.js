@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import './Contact.scss';
+import './contact.scss';
 import bgContact from 'assets/images/bgContact.jpg';
 import emailjs from '@emailjs/browser';
 
