@@ -17,7 +17,7 @@ const Routers = [
 		component: <Contact />
 	},
 	{
-		path: '/detail/:category/:id',
+		path: '/:category/:id/detail',
 		component: <Detail />
 	}
 ];
