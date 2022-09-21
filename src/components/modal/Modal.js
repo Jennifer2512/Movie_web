@@ -2,8 +2,10 @@ import React from 'react';
 import './Modal.scss';
 import apiConfig from '../../api/apiConfig';
 import errorImg from 'assets/icon/error.png';
+import { Link } from 'react-router-dom';
 
-export default function Modal({ movie }) {
+export default function Modal({ movie, category }) {
+	const link = 'detail' + '/' + category + '/' + movie.id;
 	return (
 		<div className='modalMovie'>
 			<img
@@ -24,7 +26,7 @@ export default function Modal({ movie }) {
 					{movie.overview}
 				</p>
 				<button className='modalMovie__detail-btn button-6'>
-					Watch now
+					<Link to={link}>Watch now</Link>
 				</button>
 			</div>
 		</div>

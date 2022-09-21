@@ -10,12 +10,13 @@
 		width: 200px;
 		height: 290px;
 	}
-	@media (max-width: 600px) {
+	@media (max-width: 620px) {
 		width: 180px;
 		height: 260px;
 	}
 	@media (max-width: 564px) {
 		width: 170px;
+        margin: 20px auto;
 		height: 230px;
 	}
 	@media (max-width: 425px) {
@@ -28,6 +29,7 @@
 		color: rgb(255, 255, 255);
 		padding: 7px;
 		padding-bottom: 15px;
+        user-select: none;
 		&-vote {
 			color: #e7e247;
 			position: absolute;
@@ -62,11 +64,13 @@
 			border-radius: 0.25rem;
 			box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
 			box-sizing: border-box;
-			color: #000;
 			transition: all 250ms;
 			width: 100%;
 			cursor: pointer;
 			height: 40px;
+            a {
+				color: #000;
+			}
 			@media (max-width: 990px) {
 				height: 30px;
 			}

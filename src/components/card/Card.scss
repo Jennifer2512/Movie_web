@@ -1,4 +1,5 @@
 .card {
+	color: #fff;
 	width: 100%;
 	height: 100%;
 	background: none;
@@ -23,18 +24,19 @@
 		height: 0;
 		transition: 0.5s ease;
 		padding: 10px 10px;
-        border-radius: 3px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+		border-radius: 3px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+        user-select: none;
 		&-ttl {
 			padding-top: 30px;
 			color: #e7e247;
-            font-size: 14px;
+			font-size: 14px;
 		}
-        &-decs{
-            font-size: 12px;
-        }
+		&-decs {
+			font-size: 12px;
+		}
 		&-vote {
 			color: #e7e247;
 			position: absolute;
@@ -53,11 +55,13 @@
 			border-radius: 0.25rem;
 			box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
 			box-sizing: border-box;
-			color: #000;
 			transition: all 250ms;
 			width: 100%;
 			cursor: pointer;
 			height: 40px;
+			a {
+				color: #000;
+			}
 			&:hover {
 				transform: translateY(-3px);
 			}

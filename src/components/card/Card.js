@@ -1,9 +1,11 @@
 import apiConfig from 'api/apiConfig';
-import React, { useState } from 'react';
+import React from 'react';
 import './Card.scss';
 import errorImg from 'assets/icon/error.png';
+import { Link } from 'react-router-dom';
 
-function Card({ movie }) {
+function Card({ movie, category }) {
+	const link = 'detail' + '/' + category + '/' + movie.id;
 	return (
 		<div className='card' id='card'>
 			<img
@@ -23,7 +25,9 @@ function Card({ movie }) {
 					{movie.name}
 				</h5>
 				<p className='card__detail-decs line-clamp'>{movie.overview}</p>
-				<button className='card__detail-btn button-6'>Watch now</button>
+				<button className='card__detail-btn button-6'>
+					<Link to={link}>Watch now</Link>
+				</button>
 			</div>
 		</div>
 	);

@@ -4,7 +4,7 @@ import TV from 'assets/icon/tv-popular.png';
 import Card from 'components/card/Card';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import tmdbApi, { movieType, tvType } from 'api/tmdbApi';
+import tmdbApi, { category, movieType, tvType } from 'api/tmdbApi';
 
 function Item() {
 	const [upcoming, setUpcoming] = useState([]);
@@ -76,7 +76,7 @@ function Item() {
 				<div className='bars-7'></div>
 			) : (
 				<>
-                {/* MOVIE */}
+					{/* MOVIE */}
 					<div className='discovery__item'>
 						<h3 className='discovery__ttl'>
 							<img src={MV} />
@@ -85,7 +85,11 @@ function Item() {
 						</h3>
 						<Carousel responsive={responsive} infinite>
 							{upcoming.map((movie, key) => (
-								<Card key={key} movie={movie} />
+								<Card
+									key={key}
+									movie={movie}
+									category={category.movie}
+								/>
 							))}
 						</Carousel>
 					</div>
@@ -97,7 +101,11 @@ function Item() {
 						</h3>
 						<Carousel responsive={responsive} infinite>
 							{popular.map((movie, key) => (
-								<Card key={key} movie={movie} />
+								<Card
+									key={key}
+									movie={movie}
+									category={category.movie}
+								/>
 							))}
 						</Carousel>
 					</div>
@@ -109,7 +117,11 @@ function Item() {
 						</h3>
 						<Carousel responsive={responsive} infinite>
 							{topRated.map((movie, key) => (
-								<Card key={key} movie={movie} />
+								<Card
+									key={key}
+									movie={movie}
+									category={category.movie}
+								/>
 							))}
 						</Carousel>
 					</div>
@@ -123,7 +135,11 @@ function Item() {
 						</h3>
 						<Carousel responsive={responsive} infinite>
 							{tvPopular.map((tv, key) => (
-								<Card key={key} movie={tv} />
+								<Card
+									key={key}
+									movie={tv}
+									category={category.tv}
+								/>
 							))}
 						</Carousel>
 					</div>
@@ -135,7 +151,11 @@ function Item() {
 						</h3>
 						<Carousel responsive={responsive} infinite>
 							{tvTopRated.map((tv, key) => (
-								<Card key={key} movie={tv} />
+								<Card
+									key={key}
+									movie={tv}
+									category={category.tv}
+								/>
 							))}
 						</Carousel>
 					</div>
@@ -147,7 +167,11 @@ function Item() {
 						</h3>
 						<Carousel responsive={responsive} infinite>
 							{tvOnAir.map((tv, key) => (
-								<Card key={key} movie={tv} />
+								<Card
+									key={key}
+									movie={tv}
+									category={category.tv}
+								/>
 							))}
 						</Carousel>
 					</div>

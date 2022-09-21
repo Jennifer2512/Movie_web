@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './home.scss';
-import tmdbApi, { movieType } from 'api/tmdbApi';
+import tmdbApi, { category, movieType } from 'api/tmdbApi';
 import Modal from 'components/modal/Modal';
 import ControlledCarousel from 'components/carousel/Carousel';
 import NotFound from 'components/404/NotFound';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
 
 const Home = () => {
 	const [keyword, setKeyword] = useState('');
 	const [loading, setLoading] = useState(true);
 	const [items, setItems] = useState([]);
+	const [genres, setGenres] = useState([]);
 	const [page, setPage] = useState(1);
 	const [totalPage, setTotalPage] = useState(0);
 	let response = null;
@@ -78,7 +80,6 @@ const Home = () => {
 			document.removeEventListener('keyup', enterEvent);
 		};
 	}, [goToSearch]);
-
 	return (
 		<>
 			<ControlledCarousel />
@@ -95,8 +96,6 @@ const Home = () => {
 						onClick={goToSearch}
 					></button>
 				</div>
-				{/* {items.length > 0 ? (
-					<> */}
 				{loading ? (
 					<div className='bars-7'></div>
 				) : (
@@ -105,7 +104,11 @@ const Home = () => {
 							<>
 								<div className='home-content'>
 									{items.map((item, i) => (
-										<Modal movie={item} key={i} />
+										<Modal
+											movie={item}
+											key={i}
+											category={category.movie}
+										/>
 									))}
 								</div>
 								{page < totalPage ? (
@@ -121,11 +124,6 @@ const Home = () => {
 						)}
 					</>
 				)}
-
-				{/* </>
-				) : (
-					<NotFound />
-				)} */}
 			</div>
 		</>
 	);

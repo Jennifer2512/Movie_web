@@ -29,7 +29,9 @@ const Header = () => {
 			className={`${
 				offset < 600 &&
 				(location.pathname == '/' ||
-					location.pathname.includes('/search/'))
+					location.pathname.includes('/search/') ||
+					location.pathname.includes('/detail/')
+                    )
 					? 'none'
 					: 'header-wrap sticky-top'
 			}`}
