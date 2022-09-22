@@ -83,7 +83,7 @@ function Item() {
 							Upcoming Movie
 							<hr />
 						</h3>
-						<Carousel responsive={responsive} infinite>
+						<Carousel responsive={responsive} infinite autoPlay>
 							{upcoming.map((movie, key) => (
 								<Card
 									key={key}
@@ -99,7 +99,7 @@ function Item() {
 							Top Popular Movie
 							<hr />
 						</h3>
-						<Carousel responsive={responsive} infinite>
+						<Carousel responsive={responsive} infinite autoPlay>
 							{popular.map((movie, key) => (
 								<Card
 									key={key}
@@ -115,7 +115,7 @@ function Item() {
 							Top Rated Movie
 							<hr />
 						</h3>
-						<Carousel responsive={responsive} infinite>
+						<Carousel responsive={responsive} infinite autoPlay>
 							{topRated.map((movie, key) => (
 								<Card
 									key={key}
@@ -133,7 +133,7 @@ function Item() {
 							Top Popular TV
 							<hr />
 						</h3>
-						<Carousel responsive={responsive} infinite>
+						<Carousel responsive={responsive} infinite autoPlay>
 							{tvPopular.map((tv, key) => (
 								<Card
 									key={key}
@@ -149,7 +149,7 @@ function Item() {
 							Top Rated TV
 							<hr />
 						</h3>
-						<Carousel responsive={responsive} infinite>
+						<Carousel responsive={responsive} infinite autoPlay>
 							{tvTopRated.map((tv, key) => (
 								<Card
 									key={key}
@@ -165,7 +165,7 @@ function Item() {
 							On The Air TV
 							<hr />
 						</h3>
-						<Carousel responsive={responsive} infinite>
+						<Carousel responsive={responsive} infinite autoPlay>
 							{tvOnAir.map((tv, key) => (
 								<Card
 									key={key}

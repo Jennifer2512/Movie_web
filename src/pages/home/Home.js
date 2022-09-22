@@ -18,7 +18,7 @@ const Home = () => {
 	useEffect(() => {
 		setTimeout(() => {
 			setLoading(true);
-		}, 2000);
+		}, 4000);
 	}, []);
 
 	const goToSearch = async () => {

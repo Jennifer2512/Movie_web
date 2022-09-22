@@ -49,7 +49,12 @@ const Similar = (props) => {
 
 	return (
 		<div className='movie-list'>
-			<Carousel responsive={responsive} infinite>
+			<Carousel
+				responsive={responsive}
+				infinite
+				autoPlay
+				removeArrowOnDeviceType={'mobile'}
+			>
 				{items.map((item, key) => (
 					<Card key={key} movie={item} />
 				))}
