@@ -82,20 +82,10 @@
 		}
 	}
 
-	@media (min-width: 767px), (hover: none) {
-		&:hover {
-			.card__detail {
-				height: 100%;
-				opacity: 1;
-			}
-		}
-	}
-	@media (max-width: 767px) {
-		&:active {
-			.card__detail {
-				height: 100%;
-				opacity: 1;
-			}
+	&:hover {
+		.card__detail {
+			height: 100%;
+			opacity: 1;
 		}
 	}
 }
