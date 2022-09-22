@@ -45,7 +45,7 @@
 		}
 		@media (max-width: 600px) {
 			width: 100%;
-            padding: 0 20px;
+			padding: 0 20px;
 		}
 		.title {
 			width: 100%;
@@ -76,8 +76,6 @@
 		.btn-crs {
 			height: 50px;
 			width: 290px;
-			display: flex;
-			justify-content: space-between;
 			button {
 				border: none;
 				width: 45%;
@@ -91,7 +89,7 @@
 					font-size: 13px;
 				}
 				@media (max-width: 500px) {
-					width:45%;
+					width: 45%;
 					height: 70%;
 				}
 			}
@@ -112,24 +110,6 @@
 				&:active {
 					transform: scale(0.9);
 					box-shadow: none;
-				}
-			}
-			.info {
-				display: flex;
-				align-items: center;
-				justify-content: space-around;
-				color: #fff;
-				background-color: rgba(255, 255, 255, 0.427);
-				box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-				.fa-stack {
-					font-size: 15px;
-                    @media (max-width: 500px) {
-					font-size: 12px;
-				}
-				}
-				&:hover {
-					color: #0c2738;
-					background-color: rgb(255, 255, 255);
 				}
 			}
 		}

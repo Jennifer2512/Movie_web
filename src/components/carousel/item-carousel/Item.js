@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Item.scss';
 
-function Item({ title, decs, video }) {
+function Item({ title, decs, video, link }) {
 	return (
 		<div className='item-movie'>
 			<span className='bg'></span>
@@ -13,20 +14,13 @@ function Item({ title, decs, video }) {
 				<div className='decs'>{decs}</div>
 				<div className='btn-crs'>
 					<button className='btn-watch'>
-						<a href='#'>
+						<Link to={link}>
 							<i
 								className='fa fa-play fa-fw'
 								aria-hidden='true'
 							></i>
 							Watch now
-						</a>
-					</button>
-					<button className='info'>
-						<span className='fa-stack fa-lg'>
-							<i className='fa fa-circle-thin fa-stack-2x'></i>
-							<i className='fa fa-info' aria-hidden='true'></i>
-						</span>
-						More Info
+						</Link>
 					</button>
 				</div>
 			</div>

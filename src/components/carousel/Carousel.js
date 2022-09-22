@@ -24,8 +24,8 @@ function ControlledCarousel() {
 							<Item
 								title={item.title}
 								decs={item.decs}
-								img={apiConfig.originalImage(item.poster_path)}
 								video={item.video}
+                                link={item.link}
 							/>
 						</Carousel.Item>
 					))}
