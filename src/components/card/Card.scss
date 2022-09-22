@@ -28,7 +28,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-        user-select: none;
+		user-select: none;
 		&-ttl {
 			padding-top: 30px;
 			color: #e7e247;
@@ -81,10 +81,21 @@
 			}
 		}
 	}
-	&:hover {
-		.card__detail {
-			height: 100%;
-			opacity: 1;
+
+	@media (min-width: 767px), (hover: none) {
+		&:hover {
+			.card__detail {
+				height: 100%;
+				opacity: 1;
+			}
+		}
+	}
+	@media (max-width: 767px) {
+		&:active {
+			.card__detail {
+				height: 100%;
+				opacity: 1;
+			}
 		}
 	}
 }
